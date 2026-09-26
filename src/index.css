@@ -1,0 +1,1240 @@
+@import "tailwindcss";
+
+:root {
+  font-family:
+    "Inter",
+    "Segoe UI",
+    system-ui,
+    sans-serif;
+
+  color: #eaf4f6;
+  background: #06151b;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #06151b;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* =========================================
+   PAGE
+========================================= */
+
+.baptism-page {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(53, 128, 146, 0.22),
+      transparent 35%
+    ),
+    linear-gradient(
+      180deg,
+      #06151b 0%,
+      #08232c 36%,
+      #0a3039 63%,
+      #071c24 100%
+    );
+}
+
+.baptism-content {
+  position: relative;
+  z-index: 5;
+}
+
+/* =========================================
+   WATER BACKGROUND
+========================================= */
+
+.water-background {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.water-light {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.25;
+  animation: waterLightMove 12s ease-in-out infinite;
+}
+
+.water-light-1 {
+  width: 380px;
+  height: 380px;
+  top: -170px;
+  left: -120px;
+  background: #58b8cb;
+}
+
+.water-light-2 {
+  width: 430px;
+  height: 430px;
+  top: 35%;
+  right: -230px;
+  background: #2d8195;
+  animation-delay: -4s;
+}
+
+.water-light-3 {
+  width: 350px;
+  height: 350px;
+  bottom: -170px;
+  left: 20%;
+  background: #3d9eb1;
+  animation-delay: -8s;
+}
+
+/* =========================================
+   WATER RIPPLES
+========================================= */
+
+.water-ripple {
+  position: absolute;
+  left: 50%;
+  width: 700px;
+  height: 700px;
+  border: 1px solid rgba(133, 213, 226, 0.08);
+  border-radius: 50%;
+  transform: translateX(-50%);
+  animation: ripplePulse 9s ease-in-out infinite;
+}
+
+.ripple-1 {
+  top: -380px;
+}
+
+.ripple-2 {
+  top: -330px;
+  width: 820px;
+  height: 820px;
+  animation-delay: -3s;
+}
+
+.ripple-3 {
+  top: -270px;
+  width: 950px;
+  height: 950px;
+  animation-delay: -6s;
+}
+
+/* =========================================
+   PARTICLES
+========================================= */
+
+.water-particles span {
+  position: absolute;
+  display: block;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: rgba(190, 237, 243, 0.55);
+  animation: bubbleFloat 10s linear infinite;
+}
+
+.water-particles span:nth-child(1) {
+  left: 8%;
+  bottom: -10px;
+  animation-duration: 11s;
+}
+
+.water-particles span:nth-child(2) {
+  left: 17%;
+  bottom: -20px;
+  animation-duration: 15s;
+  animation-delay: -3s;
+}
+
+.water-particles span:nth-child(3) {
+  left: 28%;
+  bottom: -20px;
+  width: 5px;
+  height: 5px;
+  animation-duration: 13s;
+  animation-delay: -7s;
+}
+
+.water-particles span:nth-child(4) {
+  left: 39%;
+  bottom: -10px;
+  animation-duration: 17s;
+  animation-delay: -2s;
+}
+
+.water-particles span:nth-child(5) {
+  left: 50%;
+  bottom: -20px;
+  width: 4px;
+  height: 4px;
+  animation-duration: 12s;
+  animation-delay: -5s;
+}
+
+.water-particles span:nth-child(6) {
+  left: 62%;
+  bottom: -20px;
+  animation-duration: 16s;
+  animation-delay: -9s;
+}
+
+.water-particles span:nth-child(7) {
+  left: 73%;
+  bottom: -10px;
+  width: 5px;
+  height: 5px;
+  animation-duration: 14s;
+  animation-delay: -4s;
+}
+
+.water-particles span:nth-child(8) {
+  left: 82%;
+  bottom: -20px;
+  animation-duration: 18s;
+  animation-delay: -11s;
+}
+
+.water-particles span:nth-child(9) {
+  left: 92%;
+  bottom: -10px;
+  animation-duration: 13s;
+  animation-delay: -6s;
+}
+
+.water-particles span:nth-child(10) {
+  left: 46%;
+  bottom: -20px;
+  width: 2px;
+  height: 2px;
+  animation-duration: 19s;
+  animation-delay: -12s;
+}
+
+.water-particles span:nth-child(11) {
+  left: 23%;
+  bottom: -20px;
+  width: 2px;
+  height: 2px;
+  animation-duration: 17s;
+  animation-delay: -9s;
+}
+
+.water-particles span:nth-child(12) {
+  left: 87%;
+  bottom: -20px;
+  width: 4px;
+  height: 4px;
+  animation-duration: 15s;
+  animation-delay: -2s;
+}
+
+/* =========================================
+   WAVES
+========================================= */
+
+.water-wave {
+  position: absolute;
+  left: -10%;
+  bottom: -120px;
+  width: 120%;
+  height: 250px;
+  border-radius: 50% 50% 0 0;
+  background: rgba(76, 166, 181, 0.035);
+  transform: rotate(-2deg);
+  animation: waveMove 12s ease-in-out infinite;
+}
+
+.wave-2 {
+  bottom: -150px;
+  opacity: 0.6;
+  transform: rotate(3deg);
+  animation-delay: -6s;
+}
+
+/* =========================================
+   HERO
+========================================= */
+
+.baptism-hero {
+  min-height: 100svh;
+  width: min(100%, 900px);
+  margin: 0 auto;
+  padding: 90px 24px 70px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  animation: heroAppear 1.2s ease-out both;
+}
+
+.hero-symbol {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  margin-bottom: 35px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(150, 222, 233, 0.2);
+  border-radius: 50%;
+
+  background: rgba(104, 190, 207, 0.07);
+
+  box-shadow:
+    0 0 45px rgba(68, 172, 191, 0.12),
+    inset 0 0 30px rgba(129, 221, 233, 0.04);
+
+  animation: symbolFloat 5s ease-in-out infinite;
+}
+
+.symbol-drop {
+  position: relative;
+  width: 22px;
+  height: 29px;
+
+  border-radius: 60% 40% 60% 60%;
+  background: linear-gradient(
+    145deg,
+    #a7e4ed,
+    #4baabd
+  );
+
+  transform: rotate(45deg);
+  box-shadow: 0 0 25px rgba(99, 204, 220, 0.3);
+}
+
+.hero-eyebrow {
+  margin: 0 0 18px;
+
+  color: #86bfc9;
+
+  font-size: 0.7rem;
+  font-weight: 600;
+
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.baptism-hero h1 {
+  margin: 0;
+
+  color: #f0f7f8;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: clamp(
+    4rem,
+    15vw,
+    8rem
+  );
+
+  font-weight: 400;
+  line-height: 0.88;
+
+  letter-spacing: -0.055em;
+}
+
+.baptism-hero h1 span {
+  display: block;
+
+  color: #83d1dd;
+
+  font-style: italic;
+
+  margin-top: 12px;
+}
+
+.hero-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+
+  width: min(280px, 80%);
+
+  margin: 40px auto 30px;
+
+  color: #7cc7d3;
+}
+
+.hero-line span {
+  flex: 1;
+  height: 1px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(119, 204, 218, 0.3)
+  );
+}
+
+.hero-line span:last-child {
+  background: linear-gradient(
+    90deg,
+    rgba(119, 204, 218, 0.3),
+    transparent
+  );
+}
+
+.hero-dot {
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: #86d4df;
+
+  box-shadow:
+    0 0 12px rgba(134, 212, 223, 0.7);
+}
+
+.hero-subtitle {
+  width: min(100%, 560px);
+
+  margin: 0;
+
+  color: rgba(215, 234, 237, 0.72);
+
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 28px;
+
+  width: 22px;
+  height: 38px;
+
+  border: 1px solid rgba(144, 211, 220, 0.25);
+  border-radius: 20px;
+}
+
+.scroll-indicator span {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+
+  width: 4px;
+  height: 7px;
+
+  border-radius: 4px;
+
+  background: rgba(150, 224, 233, 0.6);
+
+  transform: translateX(-50%);
+
+  animation: scrollDot 2s ease-in-out infinite;
+}
+
+/* =========================================
+   LABEL
+========================================= */
+
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  margin-bottom: 30px;
+
+  color: #70afba;
+
+  font-size: 0.67rem;
+  font-weight: 600;
+
+  letter-spacing: 0.16em;
+}
+
+.section-label span:first-child {
+  opacity: 0.55;
+}
+
+.section-label div {
+  width: 30px;
+  height: 1px;
+
+  background: rgba(111, 181, 193, 0.3);
+}
+
+.section-label.light {
+  color: #8fcbd3;
+}
+
+/* =========================================
+   MEANING
+========================================= */
+
+.meaning-section {
+  width: min(100%, 850px);
+  margin: 0 auto;
+  padding: 110px 25px 130px;
+
+  animation: sectionAppear 1s ease-out both;
+}
+
+.meaning-content {
+  max-width: 720px;
+}
+
+.meaning-content h2 {
+  margin: 0 0 25px;
+
+  color: #edf6f7;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: clamp(2.7rem, 8vw, 5rem);
+  font-weight: 400;
+  line-height: 0.98;
+
+  letter-spacing: -0.04em;
+}
+
+.meaning-content h2 em {
+  display: block;
+
+  color: #73c2ce;
+
+  font-style: italic;
+}
+
+.meaning-lead {
+  margin: 40px 0 25px;
+
+  color: #b7dce1;
+
+  font-size: 1.18rem;
+  line-height: 1.75;
+}
+
+.meaning-content > p:not(.meaning-lead) {
+  max-width: 650px;
+
+  margin: 0 0 22px;
+
+  color: rgba(207, 229, 232, 0.7);
+
+  font-size: 1rem;
+  line-height: 1.9;
+}
+
+.meaning-highlight {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+
+  margin-top: 55px;
+  padding: 35px 0;
+
+  text-align: center;
+}
+
+.highlight-line {
+  width: 80px;
+  height: 1px;
+
+  margin: 0 auto;
+
+  background: rgba(113, 192, 203, 0.3);
+}
+
+.meaning-highlight p {
+  margin: 0;
+
+  color: #dceff1;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: clamp(1.25rem, 4vw, 1.7rem);
+  line-height: 1.6;
+}
+
+.meaning-highlight strong {
+  color: #7bcbd6;
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* =========================================
+   VERSE
+========================================= */
+
+.verse-section {
+  position: relative;
+
+  width: 100%;
+  padding: 130px 25px;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(16, 67, 78, 0.8),
+      rgba(5, 27, 34, 0.92)
+    );
+
+  border-top: 1px solid rgba(137, 211, 220, 0.08);
+  border-bottom: 1px solid rgba(137, 211, 220, 0.08);
+}
+
+.verse-section::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(76, 173, 190, 0.12),
+      transparent 50%
+    );
+
+  pointer-events: none;
+}
+
+.verse-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  color: rgba(126, 202, 214, 0.025);
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: clamp(6rem, 22vw, 17rem);
+  font-weight: 700;
+
+  white-space: nowrap;
+
+  transform:
+    translate(-50%, -50%)
+    rotate(-8deg);
+
+  pointer-events: none;
+}
+
+.verse-content {
+  position: relative;
+
+  width: min(100%, 800px);
+
+  margin: 0 auto;
+
+  text-align: center;
+}
+
+.verse-label {
+  margin: 0 0 25px;
+
+  color: #75c3cf;
+
+  font-size: 0.7rem;
+  font-weight: 600;
+
+  letter-spacing: 0.25em;
+}
+
+.quote-mark {
+  height: 65px;
+
+  color: rgba(119, 204, 216, 0.3);
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 7rem;
+  line-height: 1;
+}
+
+.verse-content blockquote {
+  margin: 0 auto 35px;
+
+  color: #e5f2f4;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: clamp(
+    1.55rem,
+    4.5vw,
+    2.35rem
+  );
+
+  font-style: italic;
+
+  line-height: 1.55;
+
+  letter-spacing: -0.02em;
+}
+
+.verse-reference {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 15px;
+}
+
+.verse-reference span {
+  width: 45px;
+  height: 1px;
+
+  background: rgba(122, 200, 211, 0.3);
+}
+
+.verse-reference p {
+  margin: 0;
+
+  color: #80c8d2;
+
+  font-size: 0.75rem;
+  font-weight: 600;
+
+  letter-spacing: 0.15em;
+}
+
+/* =========================================
+   NEW LIFE
+========================================= */
+
+.new-life-section {
+  width: min(100%, 850px);
+
+  margin: 0 auto;
+
+  padding: 120px 25px 130px;
+}
+
+.new-life-content {
+  max-width: 700px;
+}
+
+.new-life-small {
+  margin: 0 0 20px;
+
+  color: #6fb5bf;
+
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+}
+
+.new-life-content h2 {
+  margin: 0 0 35px;
+
+  color: #edf6f7;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: clamp(3.4rem, 11vw, 6.5rem);
+  font-weight: 400;
+
+  line-height: 0.9;
+
+  letter-spacing: -0.055em;
+}
+
+.new-life-content h2 span {
+  display: block;
+
+  color: #72c2ce;
+
+  font-style: italic;
+}
+
+.new-life-content > p:not(.new-life-small):not(.new-life-final) {
+  margin: 0 0 25px;
+
+  color: rgba(205, 228, 231, 0.7);
+
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.declaration {
+  position: relative;
+
+  margin: 45px 0;
+
+  padding: 25px 40px;
+
+  border-left: 1px solid rgba(115, 199, 210, 0.4);
+
+  border-right: 1px solid rgba(115, 199, 210, 0.4);
+
+  text-align: center;
+}
+
+.declaration span {
+  color: rgba(121, 201, 211, 0.3);
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 4rem;
+
+  line-height: 0;
+}
+
+.declaration span:first-child {
+  display: block;
+
+  margin-bottom: 10px;
+}
+
+.declaration span:last-child {
+  display: block;
+
+  margin-top: 15px;
+}
+
+.declaration p {
+  margin: 0;
+
+  color: #e1f1f3;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: clamp(
+    1.6rem,
+    5vw,
+    2.3rem
+  );
+
+  font-style: italic;
+}
+
+.new-life-final {
+  max-width: 580px;
+
+  margin: 0;
+
+  color: rgba(205, 228, 231, 0.65);
+
+  font-size: 0.95rem;
+
+  line-height: 1.9;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.baptism-footer {
+  position: relative;
+
+  padding: 75px 20px 35px;
+
+  border-top: 1px solid rgba(122, 201, 211, 0.1);
+
+  background: rgba(3, 18, 23, 0.72);
+
+  text-align: center;
+}
+
+.footer-water-symbol {
+  display: flex;
+
+  align-items: flex-end;
+  justify-content: center;
+
+  gap: 3px;
+
+  width: 50px;
+  height: 30px;
+
+  margin: 0 auto 25px;
+}
+
+.footer-water-symbol span {
+  display: block;
+
+  width: 17px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  border-top: 1px solid rgba(118, 201, 212, 0.45);
+
+  transform: rotate(-8deg);
+}
+
+.footer-water-symbol span:nth-child(2) {
+  width: 24px;
+}
+
+.footer-water-symbol span:nth-child(3) {
+  transform: rotate(8deg);
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 60px;
+  height: 60px;
+
+  margin: 0 auto 15px;
+
+  border: 1px solid rgba(119, 199, 210, 0.2);
+
+  border-radius: 50%;
+
+  color: #83cbd5;
+
+  background: rgba(73, 153, 167, 0.06);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 1.1rem;
+}
+
+.baptism-footer h3 {
+  margin: 0;
+
+  color: #dceff1;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 1.25rem;
+
+  font-weight: 400;
+}
+
+.footer-description {
+  width: min(100%, 390px);
+
+  margin: 12px auto 28px;
+
+  color: rgba(185, 215, 219, 0.55);
+
+  font-size: 0.8rem;
+
+  line-height: 1.7;
+}
+
+.footer-socials {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  justify-content: center;
+
+  gap: 9px;
+
+  max-width: 600px;
+
+  margin: 0 auto;
+}
+
+.footer-socials a {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 9px 14px;
+
+  border: 1px solid rgba(122, 196, 207, 0.1);
+
+  border-radius: 999px;
+
+  color: rgba(184, 219, 223, 0.7);
+
+  background: rgba(86, 168, 181, 0.04);
+
+  font-size: 0.75rem;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    color 0.25s ease;
+}
+
+.footer-socials a:hover {
+  transform: translateY(-2px);
+
+  color: #9edbe2;
+
+  background: rgba(86, 168, 181, 0.09);
+}
+
+.footer-divider {
+  width: min(100%, 420px);
+
+  height: 1px;
+
+  margin: 30px auto 18px;
+
+  background: rgba(122, 196, 207, 0.1);
+}
+
+.copyright,
+.rights {
+  margin: 0;
+
+  color: rgba(173, 205, 209, 0.4);
+
+  font-size: 0.68rem;
+}
+
+.rights {
+  margin-top: 5px;
+}
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes heroAppear {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes sectionAppear {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes symbolFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes waterLightMove {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(20px, -20px) scale(1.06);
+  }
+}
+
+@keyframes ripplePulse {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: translateX(-50%) scale(1);
+  }
+
+  50% {
+    opacity: 0.55;
+    transform: translateX(-50%) scale(1.04);
+  }
+}
+
+@keyframes bubbleFloat {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scale(0.7);
+  }
+
+  10% {
+    opacity: 0.55;
+  }
+
+  85% {
+    opacity: 0.2;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-100vh) scale(1.1);
+  }
+}
+
+@keyframes waveMove {
+  0%,
+  100% {
+    transform: translateX(-2%) rotate(-2deg);
+  }
+
+  50% {
+    transform: translateX(2%) rotate(2deg);
+  }
+}
+
+@keyframes scrollDot {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: translate(-50%, 0);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translate(-50%, 10px);
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 640px) {
+  .baptism-hero {
+    padding: 65px 20px 60px;
+  }
+
+  .hero-symbol {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 28px;
+  }
+
+  .baptism-hero h1 {
+    font-size: clamp(3.8rem, 18vw, 5rem);
+  }
+
+  .hero-subtitle {
+    font-size: 0.92rem;
+  }
+
+  .meaning-section,
+  .new-life-section {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
+  .meaning-content h2 {
+    font-size: clamp(2.8rem, 13vw, 4.5rem);
+  }
+
+  .verse-section {
+    padding: 100px 20px;
+  }
+
+  .verse-content blockquote {
+    font-size: 1.45rem;
+  }
+
+  .declaration {
+    padding: 25px 20px;
+  }
+
+  .footer-socials {
+    flex-direction: column;
+    align-items: stretch;
+
+    width: min(100%, 270px);
+  }
+
+  .footer-socials a {
+    justify-content: center;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+/* =========================================
+   DESARROLLADO POR
+========================================= */
+
+.footer-credit {
+  margin: 25px 0 0;
+
+  color: rgba(173, 205, 209, 0.35);
+
+  font-size: 0.68rem;
+}
+
+.footer-credit a {
+  color: rgba(126, 202, 214, 0.7);
+
+  font-weight: 600;
+
+  transition:
+    color 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.footer-credit a:hover {
+  color: #9edbe2;
+}
